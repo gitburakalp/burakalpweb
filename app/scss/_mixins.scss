@@ -1,0 +1,32 @@
+@mixin m-breakpoint-up($value) {
+  @if $value == xs {
+    @media (min-width: 320px) {
+      @content;
+    }
+  }
+  @else if $value == sm {
+    @media (min-width: 600px) {
+      @content;
+    }
+  }
+  @else if $value == md {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+  @else if $value == lg {
+    @media (min-width: 992px) {
+      @content;
+    }
+  }
+  @else if $value == xl {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+  @else if $value == xxl {
+    @media (min-width: 1600px) {
+      @content;
+    }
+  }
+}
