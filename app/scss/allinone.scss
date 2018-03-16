@@ -1,5 +1,11 @@
 @import "mixins";
 
+$lightnavy:#7a7c94;
+$navy:#1c1d29;
+$darknavy:#090A1B;
+$google-blue:#4885ed;
+$google-green:#3cba54;
+
 * {
   margin: 0;
   padding: 0;
@@ -13,6 +19,24 @@ html {
 
 body {
   @extend html;
+}
+
+ul {
+  list-style: none;
+  padding: 0
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  -webkit-transition:all .25s ease-in-out;
+  -o-transition:all .25s ease-in-out;
+  transition:all .25s ease-in-out;
+
+  &:hover {
+    color: inherit;
+    text-decoration: none
+  }
 }
 
 body {
@@ -30,7 +54,16 @@ body {
   line-height: 1.2;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: $navy;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
+
 @-webkit-keyframes fadeIn {
   from {
     opacity: 0;
@@ -59,17 +92,71 @@ body {
 }
 
 .main-title {
-  font-size: 2rem;
+  font-size: 1.875rem;
   @include m-breakpoint-up(xs) {
-    font-size: calc(2rem + 20 * (100vw - 320px) / 1200);
+    font-size: calc(1.875rem + 18 * (100vw - 320px) / 1200);
   }
 }
 
 .subtitle {
-  font-size: 1.5rem;
+  font-size: 1.375rem;
   font-weight: normal;
   margin-top: 4px;
   @include m-breakpoint-up(xs) {
-    font-size: calc(1.5rem + 14 * (100vw - 320px) / 1200);
+    font-size: calc(1.375rem + 10 * (100vw - 320px) / 1200);
+  }
+}
+
+.description {
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #17181F;
+
+  @include m-breakpoint-up(xs) {
+    font-size: calc(1rem + 4 * (100vw - 320px) / 1200);
+  }
+}
+
+.flex-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+
+  @extend .description;
+
+  @include m-breakpoint-up(md) {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+  }
+
+  .list-item {
+    color: $lightnavy;
+    text-decoration: none;
+    font-weight: 500;
+
+    margin-right: calc(.5rem + 4 * (100vw - 320px) / 1200);
+
+    &.google-blue {
+      color: $google-blue
+    }
+
+    &.google-green {
+      color: $google-green
+    }
+
+    &.blog {
+      cursor: not-allowed;
+    }
+
+    &:hover:not([class*=google]) {
+      color: $darknavy;
+    }
   }
 }
