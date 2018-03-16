@@ -127,33 +127,36 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -ms-flex-flow: column nowrap;
-  flex-flow: column nowrap;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+
+  @include m-breakpoint-up(md) {
+    justify-content: flex-start;
+  }
 
   @extend .description;
 
-  @include m-breakpoint-up(md) {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-flow: row nowrap;
-    flex-flow: row nowrap;
-  }
-
   .list-item {
-    color: $lightnavy;
     text-decoration: none;
     font-weight: 500;
 
     margin-right: calc(.5rem + 4 * (100vw - 320px) / 1200);
 
     &.google-blue {
-      color: $google-blue
+      color: $google-blue;
+      &:hover {
+        color: darken($google-blue,20%)
+      }
     }
 
     &.google-green {
-      color: $google-green
+      color: $google-green;
+      &:hover {
+        color: darken($google-green,20%)
+      }
     }
 
     &.blog {
@@ -161,7 +164,7 @@ body {
     }
 
     &:hover:not([class*=google]) {
-      color: $darknavy;
+      color: $lightnavy;
     }
   }
 }
