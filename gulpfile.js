@@ -3,7 +3,6 @@ var gulp = require('gulp'),
     cssnano = require('gulp-cssnano');
 
 var scssFile = 'app/scss/allinone.scss';
-var scssDir = 'app/scss/';
 var cssDir = 'app/css/';
 
 gulp.task('sass',function(){
@@ -14,7 +13,7 @@ gulp.task('sass',function(){
 });
 
 gulp.task('watch',function(){
-  gulp.watch(scssDir,['sass']);
+  gulp.watch('app/scss/**/*.scss',['sass']);
 });
 
 gulp.task('default', ['sass','watch']);
