@@ -1,10 +1,11 @@
 @import "mixins";
 
-$lightnavy:#7a7c94;
-$navy:#1c1d29;
-$darknavy:#090A1B;
-$google-blue:#4885ed;
-$google-green:#3cba54;
+$color-lightnavy:#7a7c94;
+$color-navy:#1c1d29;
+$color-darknavy:#090A1B;
+$color-google-blue:#4885ed;
+$color-google-green:#3cba54;
+$color-gray-300:#ebebeb;
 
 * {
   margin: 0;
@@ -54,7 +55,7 @@ body {
   line-height: 1.2;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: $navy;
+  color: $color-navy;
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */
@@ -83,12 +84,34 @@ body {
   }
 }
 
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader {
+  border: 6px solid $color-gray-300;
+  border-radius: 50%;
+  border-top: 6px solid $color-google-blue;
+  border-bottom: 6px solid $color-google-green;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin .75s linear infinite;
+  animation: spin .75s linear infinite;
+}
+
 .wrapper {
   width: 100%;
   max-width: 600px;
   -webkit-animation: fadeIn 0.5s;
   animation: fadeIn 0.5s;
   cursor: default;
+  display: none;
 }
 
 .main-title {
@@ -146,16 +169,16 @@ body {
     margin-right: calc(.5rem + 4 * (100vw - 320px) / 1200);
 
     &.google-blue {
-      color: $google-blue;
+      color: $color-google-blue;
       &:hover {
-        color: darken($google-blue,20%)
+        color: darken($color-google-blue,20%)
       }
     }
 
     &.google-green {
-      color: $google-green;
+      color: $color-google-green;
       &:hover {
-        color: darken($google-green,20%)
+        color: darken($color-google-green,20%)
       }
     }
 
@@ -164,7 +187,7 @@ body {
     }
 
     &:hover:not([class*=google]) {
-      color: $lightnavy;
+      color: $color-lightnavy;
     }
   }
 }
