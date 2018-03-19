@@ -1,11 +1,5 @@
 @import "mixins";
-
-$color-lightnavy:#7a7c94;
-$color-navy:#1c1d29;
-$color-darknavy:#090A1B;
-$color-google-blue:#4885ed;
-$color-google-green:#3cba54;
-$color-gray-300:#ebebeb;
+@import "variables";
 
 * {
   margin: 0;
